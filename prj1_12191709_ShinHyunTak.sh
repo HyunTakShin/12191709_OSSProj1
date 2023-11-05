@@ -37,7 +37,7 @@ do
 		read -p "Do you want to delete the 'IMDb URL' from' u.item?(y/n)'" res 
 		case $res in
 		'y')
-			cat u.item|sed -n '1,10p'|sed -E 's/\|http.*\)//g'
+			cat u.item|sed -E 's/\|http.*\)//g'|sed -n '1,10p'
 		esac
 		;;
 	5)
