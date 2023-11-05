@@ -44,7 +44,7 @@ do
 		read -p "Do you want to get the data about users from 'u.user'?(y/n)" res
 		case $res in
 		'y')
-			cat u.user|awk -F\| '{printf("user %s is %s years old %s %s\n",$1,$2,$3,$4)}'|sed -n '1,10p'
+			cat u.user|sed -E 's/M/Male/;s/F/Female/;'|awk -F\| '{printf("user %s is %s years old %s %s\n",$1,$2,$3,$4)}'|sed -n '1,10p'
 		esac
 		;;
 	6)
